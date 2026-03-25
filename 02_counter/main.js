@@ -14,7 +14,11 @@ const plusButton = document.getElementsByClassName("botton")[0];
 //     resultH1.innterHTML = number;
 // }
 
-const plus = () =>{
-    number++;
+const plus = (value = 1) =>{
+    number += value;
+    resultH1.innterHTML = number;
+}
+const reset = () =>{
+    number = 0;
     resultH1.innterHTML = number;
 }
