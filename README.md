@@ -11,3 +11,7 @@ npm create vite@latest .
 ```
 
 ### CounterApp 😱
+-"useSTate()"
+- 'onClick()=> set험슈(이전(state =>이전state +1)) 
+
+###TodoListApp 🤔
