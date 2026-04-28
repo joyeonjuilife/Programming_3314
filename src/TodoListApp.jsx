@@ -25,12 +25,31 @@ function TodoListApp() {
         //뒤에 추가하자
         new Todo(text)
     ]);
-
+    const toggleTodo = (id) => {
+        setTodos((todos) =>
+            //todos에서 하나씩 꺼내어 todo. todo의 id 와 id가 같다면, 기존 todo.isCompleted 값 수정. 아니면 그대로
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, isCompleted: !todo.isCompleted} : todo
+            )
+        )
+    }
+    const deleteTodo = (id) =>{
+        //todos에서 하나씩 꺼낸 todo. id가 다르면 복사하자
+        setTodos((todos)=> Todo.id !==id);
+    }
+    const editTodo = (id, newText) => {
+        //todos에서 하나씩 todo 꺼내고, id가 같은 todo 찾아서, text를 newText로 수정하자
+        setTodos((todos) =>
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, text: newText } : todo
+            )
+        )
+    }
     return (
         <div className="todo">
             <TodoHeader />
             <TodoAdder addTodo={addTodo} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
         </div>
     )
 }
